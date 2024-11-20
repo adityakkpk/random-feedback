@@ -1,7 +1,6 @@
 import { resend } from "@/lib/resend";
 import VerificationEmail from "../../emails/verificationEmail";
 import { ApiResponse } from "@/types/ApiResponse";
-import { EmailElementProps } from "@react-email/components";
 
 export async function sendVerificationEmail(
   email: string,
