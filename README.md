@@ -78,3 +78,8 @@ providers: [
     }),
   ],
 ```
+
+### OTP verification and unique username check in Nextjs
+
+* Check for unique username.
+* OTP verification
