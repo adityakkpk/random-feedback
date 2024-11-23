@@ -86,4 +86,6 @@ providers: [
 
 ### Message API with aggregation pipeline
 
-
+* Create routes for accepting messages
+* Create routes for get-messages
+* Create routes for send-messages
