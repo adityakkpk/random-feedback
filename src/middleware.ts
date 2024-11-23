@@ -3,7 +3,6 @@ export { default } from "next-auth/middleware";
 import { getToken } from "next-auth/jwt";
 
 export async function middleware(request: NextRequest) {
-  console.log(request.url);
   const token = await getToken({ req: request });
   const url = request.nextUrl;
 

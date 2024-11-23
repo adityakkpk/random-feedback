@@ -4,10 +4,13 @@ import bcrypt from "bcryptjs";
 import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";
 
 export async function POST(req: Request) {
-  await dbConnect();
-
   try {
+    console.log("Starting database connection...");
+    await dbConnect();
+    console.log("Database connected successfully");
+
     const { username, email, password } = await req.json();
+    console.log("Received signup request for:", { username, email });
 
     const existingUserVerifiedByUsername = await UserModel.findOne({
       username,
@@ -30,11 +33,12 @@ export async function POST(req: Request) {
     const verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
 
     if (existingUserByEmail) {
+      console.log("Existing unverified user found, updating...");
       if (existingUserByEmail.isVerified) {
         return Response.json(
           {
             success: false,
-            message: "User already exist with this email",
+            message: "User already exists with this email",
           },
           { status: 500 }
         );
@@ -45,8 +49,16 @@ export async function POST(req: Request) {
         existingUserByEmail.verifyCodeExpiry = new Date(Date.now() + 3600000);
 
         await existingUserByEmail.save();
+        return Response.json(
+          {
+            success: true,
+            message: "Updated the User, already exists with this email. Please verify your email.",
+          },
+          { status: 200 }
+        );
       }
     } else {
+      console.log("Creating new user...");
       const hashedPassword = await bcrypt.hash(password, 10);
       const expiryDate = new Date();
       expiryDate.setHours(expiryDate.getHours() + 1);
@@ -62,7 +74,14 @@ export async function POST(req: Request) {
         messages: [],
       });
 
-      await newUser.save();
+      console.log("Attempting to save new user...");
+      try {
+        await newUser.save();
+        console.log("User saved successfully");
+      } catch (saveError) {
+        console.error("Error saving user:", saveError);
+        throw saveError;
+      }
     }
 
     //send verification email
