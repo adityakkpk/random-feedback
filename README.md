@@ -89,3 +89,6 @@ providers: [
 * Create routes for accepting messages
 * Create routes for get-messages
 * Create routes for send-messages
+
+### Integrating AI features in NextJS project
+
