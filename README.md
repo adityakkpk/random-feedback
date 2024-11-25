@@ -2,15 +2,17 @@
 
 Anonymous-Feedback is a application the gather the feedback from random users about you or your product. It is a full stack application built using NextJS.
 
-### ZOD for validation
+## Day by Day progress
+
+### Day - 1 : ZOD for validation
 
 Using ZOD for validation.
 
-### Connecting Database in Next JS
+### Day - 2 : Connecting Database in Next JS
 
 In NextJS, the server is not running every time it runs on demand. So we have to take care of the things like if we are already connected to the database or not.
 
-### Register and Sign up Algorithm
+### Day - 3 : Register and Sign up Algorithm
 
 Code should effectively handle both scenarios of registering a new user and updating an existing but unverified user account with a new password and verification code.
 
@@ -79,16 +81,24 @@ providers: [
   ],
 ```
 
-### OTP verification and unique username check in Nextjs
+### Day - 4 : OTP verification and unique username check in Nextjs
 
 * Check for unique username.
 * OTP verification
 
-### Message API with aggregation pipeline
+### Day - 5 : Message API with aggregation pipeline
 
 * Create routes for accepting messages
 * Create routes for get-messages
 * Create routes for send-messages
 
-### Integrating AI features in NextJS project
+### Day - 6 : Integrating AI features in NextJS project
 
+* Integrate the Gemini AI for suggesting messages.
+
+### Day - 7 : React hook form, shadcn and debouncing
+
+* Shadcn installation 
+* using `useHooks-ts` library to handle debouncing
+* React hook form
+* Handling debouncing in sign-up page form
