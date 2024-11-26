@@ -16,7 +16,7 @@ In NextJS, the server is not running every time it runs on demand. So we have to
 
 Code should effectively handle both scenarios of registering a new user and updating an existing but unverified user account with a new password and verification code.
 
-- _Algorithm_
+- **Algorithm**
 
 ```
 IF existingUserByEmail EXISTS THEN
@@ -33,6 +33,13 @@ END IF
 
 - Using `resend email` for email verification
 - Using `react email` for email templates
+
+### Day 4 : Signup user and custom OTP in NextJS 
+
+* Implementing the Algorithm for sign-up 
+* Writing code for Sending OTP for verification
+
+### Day 5 : Next auth or AuthJS
 
 - We are using `next-auth` for signup.
 - We are simply using credentials to sign up the user. For that we are using `credentials` feature from Next-auth.
@@ -81,24 +88,28 @@ providers: [
   ],
 ```
 
-### Day - 4 : OTP verification and unique username check in Nextjs
+### Day - 6 : OTP verification and unique username check in Nextjs
 
 * Check for unique username.
 * OTP verification
 
-### Day - 5 : Message API with aggregation pipeline
+### Day - 7 : Message API with aggregation pipeline
 
 * Create routes for accepting messages
 * Create routes for get-messages
 * Create routes for send-messages
 
-### Day - 6 : Integrating AI features in NextJS project
+### Day - 8 : Integrating AI features in NextJS project
 
 * Integrate the Gemini AI for suggesting messages.
 
-### Day - 7 : React hook form, shadcn and debouncing
+### Day - 9 : React hook form, shadcn and debouncing
 
 * Shadcn installation 
 * using `useHooks-ts` library to handle debouncing
 * React hook form
 * Handling debouncing in sign-up page form
+
+### Day - 10 : OTP Verification in NextJS 
+
+* Create UI for Verify Code and handle the verification.
