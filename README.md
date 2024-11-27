@@ -113,3 +113,8 @@ providers: [
 ### Day - 10 : OTP Verification in NextJS 
 
 * Create UI for Verify Code and handle the verification.
+
+## Day - 11 : Handling signin with AuthJS
+
+* Creating a SignIp page and handling the sign in using next-auth's Credentials
+ 
