@@ -114,7 +114,13 @@ providers: [
 
 * Create UI for Verify Code and handle the verification.
 
-## Day - 11 : Handling signin with AuthJS
+### Day - 11 : Handling signin with AuthJS
 
 * Creating a SignIp page and handling the sign in using next-auth's Credentials
- 
+
+### Day - 12 : Navbar and message card with bug fixes in Nextjs
+
+* Design a Navbar component
+* Fix the Redirect Bug
+* Create MessageCard Component
+* And Added Delete Route also
