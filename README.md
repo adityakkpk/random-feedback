@@ -127,4 +127,8 @@ providers: [
 
 ### Day - 13 : Building User Dashboard
 
-* 
+* Build the User dashboard.
+* Handle the accept-messages switch with the React-hook forms to maintain the code consistency.
+
+### Day 14 - Building Home Page with Shadcn Carousal
+

@@ -13,6 +13,7 @@ import axios, { AxiosError } from "axios";
 import { Loader2, RefreshCcw } from "lucide-react";
 import { User } from "next-auth";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -117,7 +118,30 @@ const page = () => {
   };
 
   if (!session || !session.user) {
-    return <div>Please Login</div>;
+    return (
+      <>
+        <div className="min-h-screen flex flex-col items-center justify-center">
+          <div className="text-center space-y-6 p-8 rounded-lg border border-gray-200 shadow-lg bg-white max-w-md w-full">
+            <h1 className="text-3xl font-bold text-gray-900">Please Login</h1>
+            <p className="text-gray-600">
+              You need to be logged in to access your dashboard
+            </p>
+            <Link 
+              href="/sign-in"
+              className="inline-block px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Sign In
+            </Link>
+            <p className="text-sm text-gray-500">
+              Don't have an account?{" "}
+              <Link href="/sign-up" className="text-primary hover:underline">
+                Sign up
+              </Link>
+            </p>
+          </div>
+        </div>
+      </>
+    );
   }
 
   const { username } = session?.user as User;
