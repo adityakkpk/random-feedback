@@ -34,12 +34,12 @@ END IF
 - Using `resend email` for email verification
 - Using `react email` for email templates
 
-### Day 4 : Signup user and custom OTP in NextJS 
+### Day - 4 : Signup user and custom OTP in NextJS 
 
 * Implementing the Algorithm for sign-up 
 * Writing code for Sending OTP for verification
 
-### Day 5 : Next auth or AuthJS
+### Day - 5 : Next auth or AuthJS
 
 - We are using `next-auth` for signup.
 - We are simply using credentials to sign up the user. For that we are using `credentials` feature from Next-auth.
@@ -130,5 +130,9 @@ providers: [
 * Build the User dashboard.
 * Handle the accept-messages switch with the React-hook forms to maintain the code consistency.
 
-### Day 14 - Building Home Page with Shadcn Carousal
+### Day - 14 - Building Home Page with Shadcn Carousal
 
+* Build the Home page of our application
+* Use the Carousal component of shadcn UI
+
+### Day - 15 - Assignment

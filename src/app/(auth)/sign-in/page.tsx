@@ -111,7 +111,7 @@ const SignIn = () => {
           <p>
             Don't have a account?{" "}
             <Link
-              href={"/sign-un"}
+              href={"/sign-up"}
               className="text-blue-600 hover:text-blue-800"
             >
               Sign up

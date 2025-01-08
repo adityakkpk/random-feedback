@@ -121,10 +121,7 @@ const page = () => {
                     />
                   </FormControl>
                   {isCheckingUsername && <Loader2 className="animate-spin" />}
-                  <p className={`text-sm ${usernameMessage === "Username available!" ? "text-green-500":"text-red-500"}`}> test {usernameMessage}</p>
-                  {/* <FormDescription>
-                    This is your public display name.
-                  </FormDescription> */}
+                  <p className={`text-sm ${usernameMessage === "Username available!" ? "text-green-500":"text-red-500"}`}> { usernameMessage && "test"} {usernameMessage}</p>
                   <FormMessage />
                 </FormItem>
               )}
@@ -138,9 +135,6 @@ const page = () => {
                   <FormControl>
                     <Input placeholder="email" {...field} />
                   </FormControl>
-                  {/* <FormDescription>
-                    This is your public display name.
-                  </FormDescription> */}
                   <FormMessage />
                 </FormItem>
               )}
@@ -154,9 +148,6 @@ const page = () => {
                   <FormControl>
                     <Input type="password" placeholder="password" {...field} />
                   </FormControl>
-                  {/* <FormDescription>
-                    This is your public display name.
-                  </FormDescription> */}
                   <FormMessage />
                 </FormItem>
               )}
