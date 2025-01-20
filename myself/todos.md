@@ -1,0 +1,40 @@
+# Random Feedback
+
+* Create a User model.
+  - Create an interface for Message
+  - Create message schema
+  - Create an interface for User
+  - Create User schema
+
+* Define Schemas for validation
+  - signUpSchema
+  - verifySchema
+  - signInSchema
+  - acceptMessageSchema
+  - messageSchema
+
+* Database Connection (lib > dbConnect.ts)
+  - create a `type` for `ConnectionObject` to check for `isConnected` is a number or not. It is optional.
+  - Create database connection
+    - Check if already database connected or not.
+    - then connect database
+
+* Setup Resend email (lib > resend.ts)
+  - Create a file for Resend email setup
+  - Create a template for verification-email
+  - Write a helper function to send verification-emails
+  - Create a ApiResponse type for response
+
+* Create a SignUp API route using below algorithm (src > app> api > signup > route.ts)
+```
+IF existingUserByEmail EXISTS THEN
+    IF existingUserByEmail.isVerified THEN
+        success: false
+    ELSE
+        // Save the updated user
+    END IF
+ELSE
+    // create a new user with the provided details
+    // Save the new user
+END IF
+```
