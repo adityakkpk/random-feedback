@@ -38,3 +38,17 @@ ELSE
     // Save the new user
 END IF
 ```
+
+* Setup Next-Auth & Creating signin API routes using next-auth
+  - Setup Credential Provider:
+    - In options.ts:
+      - Providers
+      - Pages
+      - Session
+      - Secret
+      - CallBacks : Store the information of user in token and session
+    - In routes.ts:
+      - Create a handler and export it as GET and POST
+    - Setup Middleware:
+      - Setup the middleware for authentication routes
+
