@@ -3,7 +3,6 @@ import UserModel from "@/model/User";
 import bcrypt from "bcryptjs";
 
 import { sendVerificationEmail } from "@/helpers/sendVerificationEmail";
-import { sendJSONResponse } from "@/helpers/sendJSONResponse";
 import { generateVerifyCode } from "@/helpers/generateVerifyCode";
 
 export async function POST(request: Request) {
@@ -18,7 +17,13 @@ export async function POST(request: Request) {
     });
 
     if (existingUserVerifiedByUsername) {
-      return sendJSONResponse(false, "Username already taken!", 400);
+      return Response.json(
+        {
+          success: false,
+          message: "Username already taken!",
+        },
+        { status: 400 }
+      );
     }
 
     const existingUserByEmail = await UserModel.findOne({ email });
@@ -27,10 +32,13 @@ export async function POST(request: Request) {
 
     if (existingUserByEmail) {
       if (existingUserByEmail.isVerified) {
-        return sendJSONResponse(
-          false,
-          "Email already registered. Please login or use a different email.",
-          400
+        return Response.json(
+          {
+            success: false,
+            message:
+              "Email already registered. Please login or use a different email.",
+          },
+          { status: 400 }
         );
       } else {
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -39,10 +47,14 @@ export async function POST(request: Request) {
         existingUserByEmail.verifyCodeExpiry = new Date(Date.now() + 3600000); // 1 hour expiry
 
         await existingUserByEmail.save();
-        return sendJSONResponse(
-          true,
-          "Updated the User, already exists with this email. Please verify your email.",
-          200
+
+        return Response.json(
+          {
+            success: true,
+            message:
+              "Updated the User, already exists with this email. Please verify your email.",
+          },
+          { status: 200 }
         );
       }
     } else {
@@ -71,16 +83,31 @@ export async function POST(request: Request) {
     );
 
     if (!emailResponse.success) {
-      return sendJSONResponse(false, emailResponse.message, 500);
+      return Response.json(
+        {
+          success: false,
+          message: emailResponse.message,
+        },
+        { status: 500 }
+      );
     }
 
-    return sendJSONResponse(
-      true,
-      "User registered successfully. Please verify your email",
-      201
+    return Response.json(
+      {
+        success: true,
+        message: "User registered successfully. Please verify your email",
+      },
+      { status: 201 }
     );
   } catch (error: any) {
     console.error("Error registering user", error);
-    return sendJSONResponse(false, "Error registering user", 500);
+
+    return Response.json(
+      {
+        success: false,
+        message: "Error registering user",
+      },
+      { status: 500 }
+    );
   }
 }

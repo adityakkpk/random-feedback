@@ -6,7 +6,7 @@
   - Create an interface for User
   - Create User schema
 
-* Define Schemas for validation
+* Define Schemas for validation (using zod)
   - signUpSchema
   - verifySchema
   - signInSchema
@@ -51,4 +51,19 @@ END IF
       - Create a handler and export it as GET and POST
     - Setup Middleware:
       - Setup the middleware for authentication routes
+
+
+* OTP verification is and unique username check
+  - Create a route to check unique username:
+    - Create an query schema for username validation using username validation schema created in zod
+    - Create a async function GET to check unique username: 
+      - Extract username from search params
+      - validate username with zod
+      - Check if user is existing and isVerified in database with this username
+      - If not user is existing and isVerified in database then Return a Response with success as true and message as "Username Available". 
+  - Create a route to verify OTP:
+    - Create an async function POST to verify OTP with username and otp provided in json format
+    - Decode the username 
+    - Find the user in database
+    - Check code is valid and code is expected or not
 
