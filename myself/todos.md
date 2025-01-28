@@ -67,3 +67,7 @@ END IF
     - Find the user in database
     - Check code is valid and code is expected or not
 
+* Message API with aggregation pipeline
+  - Create an API route for accepting-messages
+    - create a POST function to update the user accept message status
+    - Create a GET function to get the user accept message status

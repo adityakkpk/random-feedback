@@ -32,7 +32,7 @@ export async function GET(request: Request) {
       );
     }
 
-    // Result has an data object in which the username is present
+    // Result has an data object in which the username is present: { success: true, data: { username: 'one' } }
     const {username} = result.data;
 
     const existingVerifiedUser = await UserModel.findOne({

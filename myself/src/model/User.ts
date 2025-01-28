@@ -76,7 +76,9 @@ const UserSchema: Schema<User> = new Schema({
 });
 
 const UserModel =
+  // User Model Already Exists ->
   (mongoose.models.User as mongoose.Model<User>) ||
+  // Creating new User Model
   mongoose.model("User", UserSchema);
 
 export default UserModel;
