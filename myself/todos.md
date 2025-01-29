@@ -69,5 +69,10 @@ END IF
 
 * Message API with aggregation pipeline
   - Create an API route for accepting-messages
-    - create a POST function to update the user accept message status
+    - Create a POST function to update the user accept message status
     - Create a GET function to get the user accept message status
+  - Create an API route for get-messages
+    - Create a GET function to get the messages of the user
+    - Will use aggregation pipelines for getting the messages from the user
+  - Create an API route for send-messages
+    - Create a POST function to update the user with the new message
