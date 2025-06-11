@@ -3,10 +3,7 @@
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import {
   AlertDialog,
@@ -28,17 +25,17 @@ import { ApiResponse } from "@/types/ApiResponse";
 
 type MessageCardProp = {
   message: Message;
-  onMessageDelete: (messageId: any) => void;
+  onMessageDelete: (messageId: string) => void;
 };
 
 const MessageCard = ({ message, onMessageDelete }: MessageCardProp) => {
     const {toast}  = useToast();
   const handleDeleteConfirm = async () => {
-    const response = await axios.delete<ApiResponse>(`/api/delete-messages/${message._id}`)
+    const response = await axios.delete<ApiResponse>(`/api/delete-message/${message._id}`)
     toast({
         title: response.data.message
     })
-    onMessageDelete(message._id)
+    onMessageDelete(message._id as string)
   };
 
   return (

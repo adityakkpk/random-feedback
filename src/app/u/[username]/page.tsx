@@ -48,10 +48,11 @@ const MessagePage = () => {
         });
         setValue("content", "");
       }
-    } catch (error: any) {
+    } catch (e) {
+      console.error(e);
       toast({
         title: "Error",
-        description: error.response?.data?.message || "Failed to send message",
+        description: "Failed to send message",
         variant: "destructive",
       });
     } finally {
@@ -65,7 +66,8 @@ const MessagePage = () => {
       const response = await axios.post("/api/suggest-messages");
       const suggestions = response.data.content.split("||");
       setSuggestedMessages(suggestions);
-    } catch (error) {
+    } catch (e) {
+      console.error(e);
       toast({
         title: "Error",
         description: "Failed to get message suggestions",
